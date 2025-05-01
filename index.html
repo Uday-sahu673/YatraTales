@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Yatra Tales- A Smart travel web cart</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="CSS/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 text-gray-800 font-['Roboto']"
+  >
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+      <div
+  class="max-w-8xl mx-auto flex items-center justify-between px-9 py-0.1"
+>
+<div id="logo">
+  <a href="#top">
+    <img
+      src="images/logo.png"
+      alt="Yatra Tales Logo"
+      style="width: 80px; height: auto"
+    />
+  </a>
+</div>
+  <nav aria-label="Primary navigation" class="hidden md:block">
+    <ul class="flex space-x-8 font-semibold text-lg text-gray-700">
+      <li>
+        <a
+          class="hover:text-blue-600 transition-colors duration-300"
+          href="#destinations"
+          tabindex="0"
+          >Destinations</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:text-green-600 transition-colors duration-300"
+          href="#hotels"
+          tabindex="0"
+          >Nearby Hotels</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:text-purple-600 transition-colors duration-300"
+          href="#restaurants"
+          tabindex="0"
+          >Restaurants</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:text-pink-600 transition-colors duration-300"
+          href="#tourist-places"
+          tabindex="0"
+          >Famous Tourist Places</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:text-yellow-500 transition-colors duration-300"
+          href="#reviews"
+          tabindex="0"
+          >Reviews</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:text-blue-600 transition-colors duration-300"
+          href="#contact"
+          tabindex="0"
+          >Contact</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <form
+    aria-label="Search destinations"
+    class="relative w-48 md:w-64 hidden md:block"
+    role="search"
+  >
+    <input
+      aria-label="Search destinations, hotels, restaurants"
+      class="w-full rounded-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Search destinations, hotels..."
+      type="text"
+    />
+    <button
+      aria-label="Search"
+      class="absolute right-3 top-1/2 -translate-y-1/2 text-blue-600 hover:text-blue-800"
+      type="submit"
+    >
+      <i class="fas fa-search text-lg"></i>
+    </button>
+  </form>
+  <a
+    href="signin.html"
+    class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300"
+  >
+    Login
+  </a>
+</div>
+        <button
+          aria-label="Open menu"
+          class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          id="mobile-menu-button"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <nav
+        aria-label="Mobile navigation"
+        class="hidden bg-white shadow-md md:hidden"
+        id="mobile-menu"
+      >
+        <ul
+          class="flex flex-col space-y-3 px-6 py-4 font-semibold text-gray-700"
+        >
+          <li>
+            <a
+              class="block hover:text-blue-600 transition-colors duration-300"
+              href="#destinations"
+              tabindex="0"
+              >Destinations</a
+            >
+          </li>
+          <li>
+            <a
+              class="block hover:text-green-600 transition-colors duration-300"
+              href="#hotels"
+              tabindex="0"
+              >Nearby Hotels</a
+            >
+          </li>
+          <li>
+            <a
+              class="block hover:text-purple-600 transition-colors duration-300"
+              href="#restaurants"
+              tabindex="0"
+              >Restaurants</a
+            >
+          </li>
+          <li>
+            <a
+              class="block hover:text-pink-600 transition-colors duration-300"
+              href="#tourist-places"
+              tabindex="0"
+              >Famous Tourist Places</a
+            >
+          </li>
+          <li>
+            <a
+              class="block hover:text-yellow-500 transition-colors duration-300"
+              href="#reviews"
+              tabindex="0"
+              >Reviews</a
+            >
+          </li>
+          <li>
+            <a
+              class="block hover:text-blue-600 transition-colors duration-300"
+              href="#contact"
+              tabindex="0"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      aria-label="Hero section with travel destination image and call to action"
+      class="relative h-[600px] md:h-[550px] lg:h-[600px]"
+      role="banner"
+    >
+      <img
+        alt="A breathtaking aerial view of a tropical island with turquoise water, white sandy beaches, and lush greenery under a bright blue sky"
+        class="absolute inset-0 w-full h-full object-cover brightness-90"
+        height="600"
+        src="https://storage.googleapis.com/a1aa/image/a59e3ad5-e93f-475c-9818-ed4ec8883597.jpg"
+        width="1920"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-purple-900/60 to-pink-900/70 flex flex-col justify-center items-center text-center px-6 md:px-12"
+      >
+        <h1
+          class="text-white font-['Montserrat'] font-extrabold text-4xl md:text-5xl lg:text-6xl drop-shadow-lg max-w-4xl leading-tight"
+        >
+          Discover Your Next Adventure with Yatra Tales
+        </h1>
+        <p
+          class="mt-6 text-lg md:text-xl text-yellow-300 max-w-3xl drop-shadow-md"
+        >
+          Explore the best destinations, hotels, restaurants, and famous tourist
+          places worldwide.
+        </p>
+        <button
+          aria-label="Explore destinations"
+          class="mt-10 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold rounded-full px-10 py-4 shadow-lg transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-green-300"
+          type="button"
+        >
+          Explore Destinations
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12 space-y-20">
+      <!-- Destinations Section -->
+      <section
+        aria-labelledby="destinations-title"
+        class="scroll-mt-24"
+        id="destinations"
+      >
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-blue-700 mb-8 border-b-4 border-pink-500 inline-block pb-2"
+          id="destinations-title"
+        >
+          Destinations
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Paris -->
+          <article
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                alt="Eiffel Tower in Paris"
+                class="w-full h-full object-cover"
+                src="https://storage.googleapis.com/a1aa/image/65e5fb94-7473-4481-51a8-02b8e427a781.jpg"
+              />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">Paris</h3>
+              <p class="text-gray-600 mb-3">France</p>
+              <div
+                class="flex justify-center items-center gap-1 text-yellow-400"
+              >
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-700 font-bold">4.7</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tokyo -->
+          <article
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                alt="Tokyo cityscape"
+                class="w-full h-full object-cover"
+                src="https://storage.googleapis.com/a1aa/image/088fc4f1-3a9d-4591-107b-5c94b82a23c6.jpg"
+              />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">Tokyo</h3>
+              <p class="text-gray-600 mb-3">Japan</p>
+              <div
+                class="flex justify-center items-center gap-1 text-yellow-400"
+              >
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-700 font-bold">4.8</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- New York -->
+          <article
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                alt="New York City skyline"
+                class="w-full h-full object-cover"
+                src="https://storage.googleapis.com/a1aa/image/d4ae0d2a-315d-4012-9fa6-00c011b23ef6.jpg"
+              />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                New York City
+              </h3>
+              <p class="text-gray-600 mb-3">USA</p>
+              <div
+                class="flex justify-center items-center gap-1 text-yellow-400"
+              >
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-700 font-bold">4.6</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sydney -->
+          <article
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                alt="Sydney Opera House"
+                class="w-full h-full object-cover"
+                src="https://storage.googleapis.com/a1aa/image/354827fa-f960-483b-6450-915934b41e22.jpg"
+              />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">Sydney</h3>
+              <p class="text-gray-600 mb-3">Australia</p>
+              <div
+                class="flex justify-center items-center gap-1 text-yellow-400"
+              >
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-700 font-bold">4.5</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Hotels Section -->
+      <section aria-labelledby="hotels-title" class="scroll-mt-24" id="hotels">
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-green-700 mb-8 border-b-4 border-pink-500 inline-block pb-2"
+          id="hotels-title"
+        >
+          Nearby Hotels
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <article
+            aria-label="Hotel: Grand Palace Hotel, rating 4.6 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Luxurious hotel exterior with modern architecture and ambient lighting at dusk"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/9c3a7ade-cd9b-43be-dc90-f9811c2863e7.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-green-800 mb-1">
+                Grand Palace Hotel
+              </h3>
+              <p class="text-gray-600 mb-3">Located in city center</p>
+              <div
+                aria-label="Rating: 4.6 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.6 </span>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-label="Hotel: Oceanview Resort, rating 4.7 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Beachfront resort with palm trees and ocean view during sunset"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/306b7802-4878-4e2f-1415-e4d54edd1cc8.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-green-800 mb-1">
+                Oceanview Resort
+              </h3>
+              <p class="text-gray-600 mb-3">Beachfront location</p>
+              <div
+                aria-label="Rating: 4.7 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.7 </span>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-label="Hotel: Mountainview Inn, rating 4.5 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Cozy mountain lodge surrounded by pine trees and snow-capped peaks"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/764b9c49-e4a3-4320-d00a-320767035096.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-green-800 mb-1">
+                Mountainview Inn
+              </h3>
+              <p class="text-gray-600 mb-3">Near hiking trails</p>
+              <div
+                aria-label="Rating: 4.5 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.5 </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Restaurants Section -->
+      <section
+        aria-labelledby="restaurants-title"
+        class="scroll-mt-24"
+        id="restaurants"
+      >
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-purple-700 mb-8 border-b-4 border-pink-500 inline-block pb-2"
+          id="restaurants-title"
+        >
+          Restaurants
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <article
+            aria-label="Restaurant: The Spice Route, rating 4.7 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Elegant restaurant interior with warm lighting and modern decor"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/156fc807-23cd-453f-dab7-48376eb500b7.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-purple-800 mb-1">
+                The Spice Route
+              </h3>
+              <p class="text-gray-600 mb-3">Authentic local cuisine</p>
+              <div
+                aria-label="Rating: 4.7 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.7 </span>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-label="Restaurant: Ocean Breeze Cafe, rating 4.6 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Cozy cafe with ocean view and outdoor seating"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/8ef8a107-4556-4e31-5230-338efbcf497d.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-purple-800 mb-1">
+                Ocean Breeze Cafe
+              </h3>
+              <p class="text-gray-600 mb-3">Seafood specialties</p>
+              <div
+                aria-label="Rating: 4.6 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.6 </span>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-label="Restaurant: Mountain Grill, rating 4.5 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Rustic grill restaurant with mountain views and outdoor seating"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/09de03d9-194c-42b9-1a68-a65886a14b85.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-purple-800 mb-1">
+                Mountain Grill
+              </h3>
+              <p class="text-gray-600 mb-3">Grilled specialties</p>
+              <div
+                aria-label="Rating: 4.5 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.5 </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Tourist Places Section -->
+      <section
+        aria-labelledby="tourist-places-title"
+        class="scroll-mt-24"
+        id="tourist-places"
+      >
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-pink-700 mb-8 border-b-4 border-pink-500 inline-block pb-2"
+          id="tourist-places-title"
+        >
+          Famous Tourist Places
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <article
+            aria-label="Tourist place: Great Wall of China, rating 4.8 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="The Great Wall of China winding over green hills under a clear blue sky"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/62dbab93-c3eb-4001-8b57-89e2d7a4e91a.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-pink-800 mb-1">
+                Great Wall of China
+              </h3>
+              <p class="text-gray-600 mb-3">Historic landmark</p>
+              <div
+                aria-label="Rating: 4.8 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.8 </span>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-label="Tourist place: Machu Picchu, Peru, rating 4.7 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Ancient Incan city Machu Picchu surrounded by mountains and clouds"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/c28f3109-b052-4d6c-30be-c1a5b1da68db.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-pink-800 mb-1">
+                Machu Picchu
+              </h3>
+              <p class="text-gray-600 mb-3">Ancient ruins</p>
+              <div
+                aria-label="Rating: 4.7 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star-half-alt"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.7 </span>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-label="Tourist place: Taj Mahal, India, rating 4.9 out of 5 stars"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="The Taj Mahal in India with white marble and reflecting pool under a clear sky"
+              class="w-full h-48 object-cover"
+              height="300"
+              src="https://storage.googleapis.com/a1aa/image/fde60d04-0dce-4337-eda2-de4e274229c4.jpg"
+              width="400"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold text-pink-800 mb-1">
+                Taj Mahal
+              </h3>
+              <p class="text-gray-600 mb-3">World heritage site</p>
+              <div
+                aria-label="Rating: 4.9 out of 5 stars"
+                class="flex items-center gap-1 text-yellow-400 font-semibold mt-auto"
+              >
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <i class="fas fa-star"> </i>
+                <span class="ml-2 text-gray-700 font-bold"> 4.9 </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section
+        aria-labelledby="reviews-title"
+        class="scroll-mt-24"
+        id="reviews"
+      >
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-yellow-600 mb-8 border-b-4 border-pink-500 inline-block pb-2"
+          id="reviews-title"
+        >
+          Traveler Reviews
+        </h2>
+        <div class="flex flex-col gap-8 max-h-[600px] overflow-y-auto pr-2">
+          <article
+            aria-label="Review by Sarah Johnson, rating 5 stars"
+            class="bg-white rounded-xl shadow-md p-6 flex gap-6 hover:shadow-xl transition-shadow duration-300"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Portrait of Sarah Johnson, a smiling woman with short brown hair and glasses"
+              class="w-16 h-16 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0"
+              height="70"
+              src="https://storage.googleapis.com/a1aa/image/996ee3cf-fb52-44f0-dfdc-77b9aedb564c.jpg"
+              width="70"
+            />
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold text-yellow-700 text-lg">
+                  Sarah Johnson
+                </h3>
+                <div
+                  aria-label="5 out of 5 stars"
+                  class="text-yellow-400 font-semibold flex gap-0.5"
+                >
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                Paris was absolutely breathtaking! The Eiffel Tower at sunset
+                was a dream come true. The city is full of charm and delicious
+                food. Highly recommend!
+              </p>
+            </div>
+          </article>
+          <article
+            aria-label="Review by Michael Lee, rating 4.5 stars"
+            class="bg-white rounded-xl shadow-md p-6 flex gap-6 hover:shadow-xl transition-shadow duration-300"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Portrait of Michael Lee, a man with short black hair and a friendly smile"
+              class="w-16 h-16 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0"
+              height="70"
+              src="https://storage.googleapis.com/a1aa/image/358f493e-cca5-446d-85d4-e23a2b0a6452.jpg"
+              width="70"
+            />
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold text-yellow-700 text-lg">
+                  Michael Lee
+                </h3>
+                <div
+                  aria-label="4.5 out of 5 stars"
+                  class="text-yellow-400 font-semibold flex gap-0.5"
+                >
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star-half-alt"> </i>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                Tokyo was an incredible experience. The blend of tradition and
+                modernity is fascinating. Loved the food markets and the view of
+                Mount Fuji.
+              </p>
+            </div>
+          </article>
+          <article
+            aria-label="Review by Emily Davis, rating 4 stars"
+            class="bg-white rounded-xl shadow-md p-6 flex gap-6 hover:shadow-xl transition-shadow duration-300"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Portrait of Emily Davis, a young woman with long blonde hair and a bright smile"
+              class="w-16 h-16 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0"
+              height="70"
+              src="https://storage.googleapis.com/a1aa/image/7bb22cb7-cd3c-4855-bb48-6d9c3a415613.jpg"
+              width="70"
+            />
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold text-yellow-700 text-lg">
+                  Emily Davis
+                </h3>
+                <div
+                  aria-label="4 out of 5 stars"
+                  class="text-yellow-400 font-semibold flex gap-0.5"
+                >
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="far fa-star"> </i>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                New York City is vibrant and full of life. The skyline at night
+                is unforgettable. So many things to do and see, but it can get
+                crowded.
+              </p>
+            </div>
+          </article>
+          <article
+            aria-label="Review by David Martinez, rating 4.7 stars"
+            class="bg-white rounded-xl shadow-md p-6 flex gap-6 hover:shadow-xl transition-shadow duration-300"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Portrait of David Martinez, a man with short dark hair and a beard smiling"
+              class="w-16 h-16 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0"
+              height="70"
+              src="https://storage.googleapis.com/a1aa/image/6e57ecda-1c88-4c6d-ffe7-147b2dc04693.jpg"
+              width="70"
+            />
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold text-yellow-700 text-lg">
+                  David Martinez
+                </h3>
+                <div
+                  aria-label="4.7 out of 5 stars"
+                  class="text-yellow-400 font-semibold flex gap-0.5"
+                >
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star-half-alt"> </i>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                Sydney’s harbor and the Opera House are stunning. The beaches
+                nearby are perfect for relaxing. A great destination for nature
+                and city lovers alike.
+              </p>
+            </div>
+          </article>
+          <article
+            aria-label="Review by Anna Schmidt, rating 4.6 stars"
+            class="bg-white rounded-xl shadow-md p-6 flex gap-6 hover:shadow-xl transition-shadow duration-300"
+            role="listitem"
+            tabindex="0"
+          >
+            <img
+              alt="Portrait of Anna Schmidt, a woman with medium-length brown hair and a warm smile"
+              class="w-16 h-16 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0"
+              height="70"
+              src="https://storage.googleapis.com/a1aa/image/64c479e3-2013-471a-9185-d2f1d23fdd93.jpg"
+              width="70"
+            />
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold text-yellow-700 text-lg">
+                  Anna Schmidt
+                </h3>
+                <div
+                  aria-label="4.6 out of 5 stars"
+                  class="text-yellow-400 font-semibold flex gap-0.5"
+                >
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star-half-alt"> </i>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                Rome is a city full of history and amazing architecture. The
+                Colosseum and the Roman Forum are must-sees. The food is
+                delicious too!
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section aria-labelledby="about-title" class="scroll-mt-24" id="about">
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-blue-700 mb-6 border-b-4 border-pink-500 inline-block pb-2"
+          id="about-title"
+        >
+          About Yatra Tales
+        </h2>
+        <p class="max-w-4xl text-gray-700 text-lg leading-relaxed">
+          Yatra Tales is your trusted travel companion, helping millions of
+          travelers find the best destinations, hotels, restaurants, and
+          experiences worldwide. Our community-driven reviews and expert
+          recommendations ensure you make the most of your trips. Whether you're
+          planning a weekend getaway or a global adventure, Yatra Tales is here
+          to guide you every step of the way.
+        </p>
+      </section>
+
+      <!-- Contact Section -->
+      <section
+        aria-labelledby="contact-title"
+        class="scroll-mt-24 max-w-3xl"
+        id="contact"
+      >
+        <h2
+          class="text-3xl font-['Montserrat'] font-extrabold text-green-700 mb-6 border-b-4 border-pink-500 inline-block pb-2"
+          id="contact-title"
+        >
+          Contact Us
+        </h2>
+        <form
+          aria-label="Contact form"
+          class="flex flex-col gap-5"
+          novalidate=""
+        >
+          <label class="font-semibold text-gray-700" for="name">Name</label>
+          <input
+            aria-required="true"
+            class="rounded-md border border-gray-300 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400"
+            id="name"
+            name="name"
+            placeholder="Your full name"
+            required=""
+            type="text"
+          />
+          <label class="font-semibold text-gray-700" for="email">Email</label>
+          <input
+            aria-required="true"
+            class="rounded-md border border-gray-300 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required=""
+            type="email"
+          />
+          <label class="font-semibold text-gray-700" for="message"
+            >Message</label
+          >
+          <textarea
+            aria-required="true"
+            class="rounded-md border border-gray-300 px-4 py-3 text-gray-800 resize-y focus:outline-none focus:ring-2 focus:ring-green-400"
+            id="message"
+            name="message"
+            placeholder="Write your message here..."
+            required=""
+            rows="5"
+          ></textarea>
+          <button
+            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold rounded-lg py-3 shadow-md transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-green-300"
+            type="submit"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-8 mt-20"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 text-center text-sm font-semibold select-none"
+      >
+        © 2024 Yatra Tales. All rights reserved. |
+        <a
+          class="underline hover:text-yellow-300 focus:text-yellow-300 focus:outline-none"
+          href="#contact"
+          >Contact</a
+        >
+        |
+        <a
+          class="underline hover:text-yellow-300 focus:text-yellow-300 focus:outline-none"
+          href="#about"
+          >About</a
+        >
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
